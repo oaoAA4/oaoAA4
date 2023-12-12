@@ -1,5 +1,4 @@
 # задание 1
-
 # Открываем файл для записи
 with open('данные.txt', 'w') as file:
     # Запрашиваем данные у пользователя
@@ -11,3 +10,25 @@ with open('данные.txt', 'w') as file:
         file.write(line + "\n")  # Записываем данные в файл
 
 print("Данные записаны в файл 'данные.txt'")
+
+
+# задание 2
+# Открываем файл для записи
+with open('numbers.txt', 'w') as file:
+    # Генерируем 10 случайных чисел и записываем их в файл
+    for _ in range(10):
+        number = random.randint(1, 100)  # Генерируем случайное число от 1 до 100
+        file.write(str(number) + "\n")  # Записываем число в файл
+
+# Открываем файл для чтения
+with open('numbers.txt', 'r') as file:
+    numbers = file.readlines()  # Читаем числа из файла
+
+    # Находим сумму четных чисел
+    even_sum = 0
+    for number in numbers:
+        num = int(number)
+        if num % 2 == 0:  # Проверяем, является ли число четным
+            even_sum += num  # Если да, добавляем его к сумме четных чисел
+
+print("Сумма четных чисел:", even_sum)
